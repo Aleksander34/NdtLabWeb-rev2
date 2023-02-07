@@ -1,0 +1,8 @@
+.modal {
+	&-fullscreen {
+		max-width: none !important;
+		width: 100vw !important;
+		height: 100% !important;
+		margin: 0px !important;
+	}
+}

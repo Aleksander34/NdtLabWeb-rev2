@@ -1,0 +1,9 @@
+// base
+@import 'base/_btns', 'base/_mixins', 'base/_variables', 'base/_modal', 'base/_footer';
+@import 'components/_filterInspectionResult', 'components/_sidebar-menu';
+// pages
+@import 'pages/_jointsPage', 'pages/_loginPage', 'pages/_tasksPage';
+
+body {
+	background-color: $bg-color;
+}

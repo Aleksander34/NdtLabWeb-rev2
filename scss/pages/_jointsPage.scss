@@ -1,0 +1,36 @@
+.main_cont {
+	width: 900px;
+	height: 200px;
+}
+
+.jointModel__infoLeft {
+}
+.jointModel__infoRight {
+}
+
+.joinModal {
+	.modal-header {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+	.joints-table {
+	}
+}
+
+.jointModel__info {
+	.list-group-item {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+.btnIcon {
+	padding: 2px;
+	&:hover {
+		border: none;
+	}
+	& + & {
+		//? что это
+		margin-left: 5px;
+	}
+}

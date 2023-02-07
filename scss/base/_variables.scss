@@ -1,0 +1,9 @@
+$primary: #3b66b6;
+$primary-active: #d1820c;
+.btn-primary {
+	background-color: $primary !important;
+	&.active {
+		background-color: $primary-active !important;
+	}
+}
+$bg-color: #fff;
