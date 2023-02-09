@@ -105,9 +105,11 @@ $(function () {
 	let data = [];
 
 	_$table.DataTable({
+		processing: true,
+		serverSide: true,
+		paging: true,
 		ordering: false,
 		searching: false,
-		data: data,
 		dom: [
 			"<'row'<'col-md-12'f>>",
 			"<'row'<'col-md-12't>>",
@@ -118,10 +120,14 @@ $(function () {
 			"<'col-lg-5 col-xs-12'<'float-right'p>>",
 			'>',
 		].join(''),
-		buttons: [{ name: 'refresh', text: '<i class="fa-solid fa-rotate"></i>', action: () => console.log('refresh') }],
+		buttons: [{ name: 'refresh', text: '<i class="fa-solid fa-rotate"></i>', action: () => books.ajax.reload().draw(false) }],
 		language: language,
 		drawCallback: () => {
 			$('[data-bs-toggle="tooltip"]').tooltip();
+		},
+		ajax: async (data, success, failure) => {
+			let result = await jointService.getAll();
+			success(result);
 		},
 		columns: [
 			{
@@ -411,7 +417,7 @@ $(function () {
 			$('#requestNumber').text(previewRequest.request.number);
 			$('#requestData').text(new Date(previewRequest.request.date).toLocaleDateString());
 			$('#requestWeldingCompany').text(previewRequest.request.weldingCompany);
-			$('#divisionName').text(previewRequest.division.name);
+			$('#divisionName').text(previewRequest.request.division.name);
 			$('#requestObject').text(previewRequest.request.object);
 			$('#requestPartObject').text(previewRequest.request.partObject);
 			$('#requestCategoryGost').text(previewRequest.request.categoryGost);
@@ -429,10 +435,10 @@ $(function () {
 			$('#requestPipingSpool').text(previewRequest.request.piping.spool);
 			$('#requestSteelStructureSector').text(previewRequest.request.steelStructure.sector);
 			$('#requestSteelStructurePart').text(previewRequest.request.steelStructure.part);
-			$('#tankPart').text(previewRequest.tankPart);
+			$('#tankPart').text(previewRequest.request.tank.part);
 			$('#requestPipeLineDistance').text(previewRequest.request.pipeLine.distance);
 			$('#requestRebar').text(previewRequest.request.rebar);
-			$('#QualificationType').text(previewRequest.qualificationType);
+			$('#QualificationType').text(previewRequest.request.qualification);
 
 			$('#requestSubmittedBy').text(previewRequest.request.submittedBy);
 			$('#requestReceivedByFio').text(previewRequest.request.receivedByFio);
