@@ -148,208 +148,82 @@ $(function () {
 				data: 'sN',
 			},
 			{
-				data: 'request_number',
+				data: 'request.number',
 			},
 			{
-				data: 'request_partObject',
+				data: 'request.partObject',
 			},
 			{
-				data: 'joint_number',
+				data: 'number',
 			},
 			{
-				data: 'piping_zone',
+				data: 'request.piping.zone',
 			},
 			{
-				data: 'piping_line',
+				data: 'request.piping.line',
 			},
 			{
-				data: 'piping_spool',
+				data: 'request.piping.spool',
 			},
 			{
-				data: 'steelStructure_part',
+				data: 'request.steelStructure.part',
 			},
 			{
-				data: 'steelStructure_sector',
+				data: 'request.steelStructure.sector',
 			},
 			{
-				data: 'tank_part',
+				data: 'request.tank.part',
 			},
 			{
-				data: 'pipeLine_distance',
+				data: 'request.pipeLine.distance',
 			},
 			{
-				data: 'joint_connectionType',
+				data: 'connectionType',
 			},
 			{
-				data: 'joint_weldingType',
+				data: 'weldingType',
 			},
 			{
-				data: 'welder_stamp',
+				data: 'stamps',
 			},
 			{
-				data: 'joint_weldingDate',
+				data: 'weldingDate',
 			},
 			{
-				data: 'request_date',
+				data: 'request.date',
 			},
 			{
-				data: 'joint_elementOne',
+				data: 'elementOne',
 			},
 			{
-				data: 'joint_elementTwo',
+				data: 'elementTwo',
 			},
 			{
-				data: 'joint_diameterOne',
+				data: 'diameterOne',
 			},
 			{
-				data: 'joint_diameterTwo',
+				data: 'diameterTwo',
 			},
 			{
-				data: 'joint_thicknessOne',
+				data: 'thicknessOne',
 			},
 			{
-				data: 'joint_thicknessTwo',
+				data: 'thicknessTwo',
 			},
 			{
-				data: 'joint_gradeOne',
+				data: 'gradeOne',
 			},
 			{
-				data: 'joint_gradeTwo',
+				data: 'gradeTwo',
 			},
 			{
-				data: 'request_categoryGost',
+				data: 'request.categoryGost',
 			},
 			{
-				data: 'request_otherCategory',
+				data: 'request.otherCategory',
 			},
 			{
-				data: 'requiredInspection_name',
-			},
-			{
-				data: 'rt_inspection_name',
-			},
-			{
-				data: 'rt_inspection_date',
-			},
-			{
-				data: 'rt_inspection_reportDate',
-			},
-			{
-				data: 'rt_inspection_reportNumber',
-			},
-			{
-				data: 'rt_inspection_result',
-			},
-			{
-				data: 'rt_inspection_description',
-			},
-			{
-				data: 'paut_Inspection_name',
-			},
-			{
-				data: 'paut_inspection_date',
-			},
-			{
-				data: 'paut_inspection_reportDate',
-			},
-			{
-				data: 'paut_inspection_reportNumber',
-			},
-			{
-				data: 'paut_inspection_result',
-			},
-			{
-				data: 'paut_inspection_description',
-			},
-			{
-				data: 'ut_inspection_name',
-			},
-			{
-				data: 'ut_inspection_date',
-			},
-			{
-				data: 'ut_inspection_reportDate',
-			},
-			{
-				data: 'ut_inspection_reportNumber',
-			},
-			{
-				data: 'ut_inspection_result',
-			},
-			{
-				data: 'ut_inspection_description',
-			},
-			{
-				data: 'vt_inspection_name',
-			},
-			{
-				data: 'vtinspection_date',
-			},
-			{
-				data: 'vtinspection_reportDate',
-			},
-			{
-				data: 'vtinspection_reportNumber',
-			},
-			{
-				data: 'vtinspection_result',
-			},
-			{
-				data: 'vtinspection_description',
-			},
-			{
-				data: 'pt_inspection_name',
-			},
-			{
-				data: 'pt_inspection_date',
-			},
-			{
-				data: 'pt_inspection_reportDate',
-			},
-			{
-				data: 'pt_inspection_reportNumber',
-			},
-			{
-				data: 'pt_inspection_result',
-			},
-			{
-				data: 'pt_inspection_description',
-			},
-			{
-				data: 'mt_inspection_name',
-			},
-			{
-				data: 'mt_inspection_date',
-			},
-			{
-				data: 'mt_inspection_reportDate',
-			},
-			{
-				data: 'mt_inspection_reportNumber',
-			},
-			{
-				data: 'mt_inspection_result',
-			},
-			{
-				data: 'mt_inspection_description',
-			},
-			{
-				data: 'lt_inspection_name',
-			},
-			{
-				data: 'lt_inspection_date',
-			},
-			{
-				data: 'lt_inspection_reportDate',
-			},
-			{
-				data: 'lt_inspection_reportNumber',
-			},
-			{
-				data: 'lt_inspection_result',
-			},
-			{
-				data: 'lt_inspection_description',
+				data: 'inspections',
 			},
 		],
 	});
