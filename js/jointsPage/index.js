@@ -1,5 +1,6 @@
 import requestService from '../api/requestService.js';
-import initColumnFilter from '../libs/tableColumnFilter.js';
+// import initColumnFilter from '../libs/tableColumnFilter.js';
+import jointService from '../api/jointService.js';
 $(function () {
 	var _$modal = $('#exampleModal'),
 		_$table = $('#example');
@@ -60,9 +61,9 @@ $(function () {
 			{
 				data: 'stamps',
 			},
-			{
-				data: 'requiredInspection',
-			},
+			// {
+			// 	data: 'requiredInspection',
+			// },
 			{
 				data: 'weldLength',
 			},
@@ -110,6 +111,7 @@ $(function () {
 		paging: true,
 		ordering: false,
 		searching: false,
+		scrollX: true, 
 		dom: [
 			"<'row'<'col-md-12'f>>",
 			"<'row'<'col-md-12't>>",
@@ -127,25 +129,45 @@ $(function () {
 		},
 		ajax: async (data, success, failure) => {
 			let result = await jointService.getAll();
+			for(let joint of result.data){
+				if(joint.inspections){
+					let inspections = joint.inspections.map(x=>{
+						if(x.result==1){
+							return `<span style="color: green;">${x.name}</span>`;
+						}
+						if(x.result==2){
+							return `<span style="color: red;">${x.name}</span>`;
+						}
+						return x.name;
+					})
+					joint.inspections=inspections.join(', ');
+				}
+			}
 			success(result);
 		},
 		columns: [
-			{
-				data: null,
-				render: (data) => {
-					let btns = [
-						`<button type="button" class="btn text-danger btnIcon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Удалить"><i class="fa-solid fa-xmark"></i></button>`,
-						`<button type="button" class="btn text-secondary btnIcon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Редактировать"><i class="fa-solid fa-pen"></i></button>`,
-						`<button type="button" class="showRepairCountModal btn text-secondary btnIcon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Количество: 10"><i class="fa-regular fa-eye"></i></button>`,
-					].join('');
-					return `<div class="d-flex align-items-center">
-					${btns}
-					</div>`;
-				},
-			},
+			// {
+			// 	data: null,
+			// 	render: (data) => {
+			// 		let btns = [
+			// 			`<button type="button" class="btn text-danger btnIcon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Удалить"><i class="fa-solid fa-xmark"></i></button>`,
+			// 			`<button type="button" class="btn text-secondary btnIcon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Редактировать"><i class="fa-solid fa-pen"></i></button>`,
+			// 			`<button type="button" class="showRepairCountModal btn text-secondary btnIcon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Количество: 10"><i class="fa-regular fa-eye"></i></button>`,
+			// 		].join('');
+			// 		return `<div class="d-flex align-items-center">
+			// 		${btns}
+			// 		</div>`;
+			// 	},
+			// },
 
 			{
-				data: 'sN',
+				searchable: false,
+				orderable: false,
+				targets: 0,
+				data: null,
+				render: function (data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				},
 			},
 			{
 				data: 'request.number',
@@ -332,9 +354,9 @@ $(function () {
 		swal('Успешно!', 'Заявка загружена', 'success');
 	});
 
-	let f1 = initColumnFilter('#example', '.colWithFilter[data-num="3"]');
-	let f2 = initColumnFilter('#example', '.colWithFilter[data-num="2"]');
-	let f3 = initColumnFilter('#example', '.colWithFilter[data-num="1"]');
+	// let f1 = initColumnFilter('#example', '.colWithFilter[data-num="3"]');
+	// let f2 = initColumnFilter('#example', '.colWithFilter[data-num="2"]');
+	// let f3 = initColumnFilter('#example', '.colWithFilter[data-num="1"]');
 
 	$(document).on('click', '.showRepairCountModal', function () {
 		$('#repairCountModal').modal('show');
