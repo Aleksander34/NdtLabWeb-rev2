@@ -129,20 +129,6 @@ $(function () {
 		},
 		ajax: async (data, success, failure) => {
 			let result = await jointService.getAll();
-			for(let joint of result.data){
-				if(joint.inspections){
-					let inspections = joint.inspections.map(x=>{
-						if(x.result==1){
-							return `<span style="color: green;">${x.name}</span>`;
-						}
-						if(x.result==2){
-							return `<span style="color: red;">${x.name}</span>`;
-						}
-						return x.name;
-					})
-					joint.inspections=inspections.join(', ');
-				}
-			}
 			success(result);
 		},
 		columns: [
@@ -246,6 +232,19 @@ $(function () {
 			},
 			{
 				data: 'inspections',
+				render: (data) => {
+					let inspections = data.map(x=>{
+						if(x.result==1){
+							return `<span style="color: green;">${x.name}</span>`;
+						}
+						if(x.result==2){
+							return `<span style="color: red;">${x.name}</span>`;
+						}
+						return x.name;
+					})
+					inspections=inspections.join(', ');
+					return inspections&& `<button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#inspectionModal">${inspections}</button>` ||'';
+				},
 			},
 		],
 	});
