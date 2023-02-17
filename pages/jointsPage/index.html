@@ -506,7 +506,7 @@
 			</div>
 		</div>
 
-		<!-- модальное окно -->
+		<!-- модальное окно ремонтов устарело -->
 		<div id="repairCountModal" class="modal" tabindex="-1">
 			<div class="modal-dialog modal-fullscreen">
 				<div class="modal-content">
@@ -591,7 +591,7 @@
 					</div>
 					<div class="modal-body">
 						<h3>Дата Сварки</h3>
-						<table id="inspectionTable" class="table">
+						<table id="inspectionTable" class="table table-striped w-100">
 							<thead>
 								<tr>
 									<th>Метод контроля</th>
@@ -605,45 +605,13 @@
 									<th>Время в работе с по</th>
 								</tr>
 							</thead>
-							<tbody>
-								<th>ВИК</th>
-								<th>годен</th>
-								<th>01.01.2020</th>
-								<th>01.01.2020</th>
-								<th>01-10-562а</th>
-								<th>01.01.2020</th>
-								<th>дефектов не обнаружено</th>
-								<th></th>
-								<th>1д5ч</th>
-							</tbody>
-							<tbody>
-								<th>УЗК</th>
-								<th>годен</th>
-								<th>01.01.2020</th>
-								<th>01.01.2020</th>
-								<th>01-10-562а</th>
-								<th>01.01.2020</th>
-								<th>дефектов не обнаружено</th>
-								<th></th>
-								<th>1д5ч</th>
-							</tbody>
-							<tbody>
-								<th>РК</th>
-								<th>ремонт</th>
-								<th>01.01.2020</th>
-								<th>01.01.2020</th>
-								<th>01-10-562а</th>
-								<th>01.01.2020</th>
-								<th>несплавление непровар поры</th>
-								<th></th>
-								<th>1д5ч</th>
-							</tbody>
+							<tbody></tbody>
 						</table>
 
 						<!-- вторая таблица история изменений -->
-						<div class="mt-5">
+						<div id="inspectionHistory" class="mt-5 d-none">
 							<h3>метод контроля: РК</h3>
-							<table id="inspectionHistory" class="table">
+							<table id="inspectionHistoryTable" class="table">
 								<thead>
 									<tr>
 										<th>результат контроля</th>
@@ -667,46 +635,8 @@
 										<th>НР</th>
 										<th>сварщик Вася</th>
 									</tr>
-                  <th>ремонт</th>
-                  <th>01.01.2020</th>
-                  <th>01.01.2020</th>
-                  <th>01.01.2020</th>
-                  <th>заключение №1</th>
-                  <th>несплавление непровар поры</th>
-                  <th>НР</th>
-                  <th>сварщик Вася</th>
-                </tr>
-                <th>ремонт</th>
-                <th>01.01.2020</th>
-                <th>01.01.2020</th>
-                <th>01.01.2020</th>
-                <th>заключение №1</th>
-                <th>несплавление непровар поры</th>
-                <th>НР</th>
-                <th>сварщик Вася</th>
-              </tr>
-								</tbody>
-							</table>
-						</div>
-
-            <div class="mt-5">
-							<h3>метод контроля: УЗК</h3>
-							<table id="inspectionHistory" class="table">
-								<thead>
 									<tr>
-										<th>результат контроля</th>
-										<th>дата контроля</th>
-										<th>Дата заявки</th>
-										<th>Дата Сварки</th>
-										<th>номер заключения</th>
-										<th>описание дефектов</th>
-										<th>тип</th>
-										<th>клеймо сварщика</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th>годен</th>
+										<th>ремонт</th>
 										<th>01.01.2020</th>
 										<th>01.01.2020</th>
 										<th>01.01.2020</th>
@@ -715,46 +645,8 @@
 										<th>НР</th>
 										<th>сварщик Вася</th>
 									</tr>
-                  <th>годен</th>
-                  <th>01.01.2020</th>
-                  <th>01.01.2020</th>
-                  <th>01.01.2020</th>
-                  <th>заключение №1</th>
-                  <th>несплавление непровар поры</th>
-                  <th>НР</th>
-                  <th>сварщик Вася</th>
-                </tr>
-                <th>годен</th>
-                <th>01.01.2020</th>
-                <th>01.01.2020</th>
-                <th>01.01.2020</th>
-                <th>заключение №1</th>
-                <th>несплавление непровар поры</th>
-                <th>НР</th>
-                <th>сварщик Вася</th>
-              </tr>
-								</tbody>
-							</table>
-						</div>
-
-            <div class="mt-5">
-							<h3>метод контроля: ВИК</h3>
-							<table id="inspectionHistory" class="table">
-								<thead>
 									<tr>
-										<th>результат контроля</th>
-										<th>дата контроля</th>
-										<th>Дата заявки</th>
-										<th>Дата Сварки</th>
-										<th>номер заключения</th>
-										<th>описание дефектов</th>
-										<th>тип</th>
-										<th>клеймо сварщика</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th>годен</th>
+										<th>ремонт</th>
 										<th>01.01.2020</th>
 										<th>01.01.2020</th>
 										<th>01.01.2020</th>
@@ -763,28 +655,9 @@
 										<th>НР</th>
 										<th>сварщик Вася</th>
 									</tr>
-                  <th>годен</th>
-                  <th>01.01.2020</th>
-                  <th>01.01.2020</th>
-                  <th>01.01.2020</th>
-                  <th>заключение №1</th>
-                  <th>несплавление непровар поры</th>
-                  <th>НР</th>
-                  <th>сварщик Вася</th>
-                </tr>
-                <th>годен</th>
-                <th>01.01.2020</th>
-                <th>01.01.2020</th>
-                <th>01.01.2020</th>
-                <th>заключение №1</th>
-                <th>несплавление непровар поры</th>
-                <th>НР</th>
-                <th>сварщик Вася</th>
-              </tr>
 								</tbody>
 							</table>
 						</div>
-
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

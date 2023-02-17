@@ -155,7 +155,7 @@
 					<!-- Фильтры таблицы -->
 					<div class="joints__filters">
 						<div class="row mb-3">
-							<div class="col-9">
+							<div class="col-8">
 								<div class="row mb-3">
 									<div class="col-3">
 										<label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
@@ -189,36 +189,65 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-3">
+							<div class="col-4">
 								<div class="filterEmployees">
 									<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 										<input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" />
-										<label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+										<label class="btn btn-outline-primary" for="btncheck1">День</label>
 
 										<input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" />
-										<label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+										<label class="btn btn-outline-primary" for="btncheck2">Ночь</label>
 									</div>
-									<div class="filterEmployees__card card" style="width: 18rem">
-										<div class="card-header">Выбрать сотрудника</div>
+									<label>Выбрать рабочую смену</label>
+									<div class="filterEmployees__card card" style="width: 30rem">
+										<div class="card-header">Выбрать сотрудника/ов</div>
 										<div class="filterEmployees__content">
-											<input type="search" name="" id="" class="filterEmployees__search" />
+											<input type="search" name="" id="" class="filterEmployees__search w-100" placeholder="Поиск" />
 											<ul class="list-group">
 												<li class="list-group-item">
 													<input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" />
-													<label class="form-check-label" for="firstCheckbox">First checkbox</label>
+													<label class="form-check-label" for="firstCheckbox">Иванов Иван Иванович</label>
 												</li>
 												<li class="list-group-item">
 													<input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox" />
-													<label class="form-check-label" for="secondCheckbox">Second checkbox</label>
+													<label class="form-check-label" for="secondCheckbox">Петров Петр Петрович</label>
 												</li>
 												<li class="list-group-item">
 													<input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox" />
-													<label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
+													<label class="form-check-label" for="thirdCheckbox">Сидоров Алексей Федорович</label>
+												</li>
+												<li class="list-group-item">
+													<input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox" />
+													<label class="form-check-label" for="firstCheckbox">Степанов Степан Иванович</label>
+												</li>
+												<li class="list-group-item">
+													<input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox" />
+													<label class="form-check-label" for="secondCheckbox">Александров Александр Михайлович</label>
+												</li>
+												<li class="list-group-item">
+													<input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox" />
+													<label class="form-check-label" for="thirdCheckbox">Куткин Алексей Иванович</label>
 												</li>
 											</ul>
 										</div>
 									</div>
 								</div>
+
+								<select class="form-select" multiple aria-label="multiple select example">
+									<option selected>Open this select menu</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -234,12 +263,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="">
@@ -250,12 +277,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="">
@@ -266,12 +291,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="">
@@ -282,12 +305,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="">
@@ -298,12 +319,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="">
@@ -314,12 +333,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="">
@@ -330,12 +347,10 @@
 									</div>
 								</div>
 								<select name="" id="">
-									<option selected value="default">-</option>
+									<option selected value="default">все опции</option>
 									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
 									<option value="2">ремонт</option>
 									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
 								</select>
 							</div>
 							<div class="d-flex align-items-center">
@@ -361,11 +376,12 @@
 						<table id="example" class="table table-striped joints-table tableFiltred">
 							<thead>
 								<tr>
-									<th></th>
-									<th class="colWithFilter" data-num="1">№</th>
-									<th class="colWithFilter" data-num="2">Номер заявки</th>
+									<th>№</th>
+									<!-- последний номер в массиве-->
+									<th>Номер заявки</th>
 									<th>Подобъект</th>
-									<th class="colWithFilter" data-num="3">Номер стыка</th>
+									<!-- последний номер в массиве-->
+									<th>Номер стыка</th>
 									<th>Зона(тт)</th>
 									<th>Линия(тт)</th>
 									<th>Спул(тт)</th>
@@ -375,8 +391,11 @@
 									<th>Километр(ЛЧ)</th>
 									<th>Тип соединения</th>
 									<th>Способ сварки</th>
+									<!-- последний номер в массиве-->
 									<th>Клеймо сварщика</th>
+									<!-- последний номер в массиве-->
 									<th>Дата Сварки</th>
+									<!-- последний номер в массиве-->
 									<th>Дата Заявки</th>
 									<th>Элемент 1</th>
 									<th>Элемент 2</th>
@@ -388,49 +407,7 @@
 									<th>Марка стали 2</th>
 									<th>Категория ГОСТ</th>
 									<th>Иная категория</th>
-									<th>Методы контроля</th>
-									<th>Метод испытания РК</th>
-									<th>Дата контроля РК</th>
-									<th>Дата заключения РК</th>
-									<th>Номер заключения РК</th>
-									<th>Результат контроля РК</th>
-									<th>Описание дефектов РК</th>
-									<th>Метод испытания PAUT</th>
-									<th>Дата контроля PAUT</th>
-									<th>Дата заключения PAUT</th>
-									<th>Номер заключения PAUT</th>
-									<th>Результат контроля PAUT</th>
-									<th>Описание дефектов PAUT</th>
-									<th>Метод испытания УЗК</th>
-									<th>Дата контроля УЗК</th>
-									<th>Дата заключения УЗК</th>
-									<th>Номер заключения УЗК</th>
-									<th>Результат контроля УЗК</th>
-									<th>Описание дефектов УЗК</th>
-									<th>Метод испытания ВИК</th>
-									<th>Дата контроля ВИК</th>
-									<th>Дата заключения ВИК</th>
-									<th>Номер заключения ВИК</th>
-									<th>Результат контроля ВИК</th>
-									<th>Описание дефектов ВИК</th>
-									<th>Метод испытания ПВК</th>
-									<th>Дата контроля ПВК</th>
-									<th>Дата заключения ПВК</th>
-									<th>Номер заключения ПВК</th>
-									<th>Результат контроля ПВК</th>
-									<th>Описание дефектов ПВК</th>
-									<th>Метод испытания МК</th>
-									<th>Дата контроля МК</th>
-									<th>Дата заключения МК</th>
-									<th>Номер заключения МК</th>
-									<th>Результат контроля МК</th>
-									<th>Описание дефектов МК</th>
-									<th>Метод испытания ПВТ</th>
-									<th>Дата контроля ПВТ</th>
-									<th>Дата заключения ПВТ</th>
-									<th>Номер заключения ПВТ</th>
-									<th>Результат контроля ПВТ</th>
-									<th>Описание дефектов ПВТ</th>
+									<th>Требуемые испытания</th>
 								</tr>
 							</thead>
 							<tbody></tbody>

@@ -1,6 +1,7 @@
 import requestService from '../api/requestService.js';
 // import initColumnFilter from '../libs/tableColumnFilter.js';
 import jointService from '../api/jointService.js';
+import inspectionService from '../api/inspectionService.js';
 $(function () {
 	var _$modal = $('#exampleModal'),
 		_$table = $('#example');
@@ -111,7 +112,7 @@ $(function () {
 		paging: true,
 		ordering: false,
 		searching: false,
-		scrollX: true, 
+		scrollX: true,
 		dom: [
 			"<'row'<'col-md-12'f>>",
 			"<'row'<'col-md-12't>>",
@@ -232,18 +233,18 @@ $(function () {
 			},
 			{
 				data: 'inspections',
-				render: (data) => {
-					let inspections = data.map(x=>{
-						if(x.result==1){
+				render: (data, type, row) => {
+					let inspections = data.map((x) => {
+						if (x.result == 1) {
 							return `<span style="color: green;">${x.name}</span>`;
 						}
-						if(x.result==2){
+						if (x.result == 2) {
 							return `<span style="color: red;">${x.name}</span>`;
 						}
 						return x.name;
-					})
-					inspections=inspections.join(', ');
-					return inspections&& `<button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#inspectionModal">${inspections}</button>` ||'';
+					});
+					inspections = inspections.join(', ');
+					return (inspections && `<button data-joint="${row.id}" type="button" class="jointInspections btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#inspectionModal">${inspections}</button>`) || '';
 				},
 			},
 		],
@@ -381,5 +382,83 @@ $(function () {
 			$(this).text('выбрать все');
 			$('#mainFilters select').val('default').change();
 		}
+	});
+
+	let jointId;
+	let inspectionTable = $('#inspectionTable').DataTable({
+		ordering: false,
+		searching: false,
+		dom: [
+			"<'row'<'col-md-12'f>>",
+			"<'row'<'col-md-12't>>",
+			"<'row mt-2'",
+			"<'col-lg-1 col-xs-12'<'float-left text-center data-tables-refresh'>>",
+			"<'col-lg-3 col-xs-12'<'float-left text-center'i>>",
+			"<'col-lg-3 col-xs-12'<'text-center'l>>",
+			"<'col-lg-5 col-xs-12'<'float-right'p>>",
+			'>',
+		].join(''),
+		info: false,
+		paging: false,
+		buttons: [{ name: 'refresh', text: '<i class="fa-solid fa-rotate"></i>', action: () => inspectionTable.ajax.reload().draw(false) }],
+		language: language,
+		drawCallback: () => {
+			$('[data-bs-toggle="tooltip"]').tooltip();
+		},
+		ajax: (data, success, failure) => {
+			console.log(jointId);
+			if (jointId) {
+				inspectionService.getAll(jointId).then(function (result) {
+					success(result);
+				});
+			} else {
+				success({ data: [], recordsTotal: 0, recordsFiltered: 0 });
+			}
+		},
+		columns: [
+			{
+				data: 'name',
+				render: (data, type, row) => {
+					return `${data}
+				<button type="button" data-id="${row.id}" data-bs-toggle="tooltip" title="История" class="btn btn-primary ms-2 btn-inspectionHistory">
+					<span class="badge bg-secondary">${5}</span>
+				</button>`;
+				},
+			},
+			{
+				data: 'result',
+			},
+			{
+				data: 'date',
+			},
+			{
+				data: 'requestDate',
+			},
+			{
+				data: 'reportNumber',
+			},
+			{
+				data: 'reportDate',
+			},
+			{
+				data: 'description',
+			},
+			{
+				data: 'type',
+			},
+			{
+				data: 'timeInProcess',
+			},
+		],
+	});
+
+	$(document).on('click', '.jointInspections', function () {
+		jointId = $(this).data('joint');
+		console.log(jointId);
+		inspectionTable.ajax.reload();
+	});
+
+	$(document).on('click', '.btn-inspectionHistory', function () {
+		$('#inspectionHistory').removeClass('d-none');
 	});
 });
