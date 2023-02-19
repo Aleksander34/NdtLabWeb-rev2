@@ -1,6 +1,7 @@
 import jointService from '../api/jointService.js';
 import inspectionService from '../api/inspectionService.js';
 import employeeService from '../api/employeeService.js';
+import equipmentService from '../api/equipmentService.js';
 $(function () {
 
 	var _$modal = $('#exampleModal'),
@@ -108,7 +109,7 @@ $(function () {
 				targets: 0,
 				data: null,
 				render: function (data, type, row, meta) {
-					return meta.row + meta.settings._iDisplayStart + 1;
+					return `<input type="checkbox" class="JointTask" data-id="${row.id}">` + (meta.row + meta.settings._iDisplayStart + 1);
 				},
 			},
 			{
@@ -212,6 +213,11 @@ $(function () {
 		multipleDatesSeparator: ' - ',
 	});
 
+	new AirDatepicker('#startWorkDateTime', {
+		timepicker: true,
+		timeFormat: 'hh:mm AA',
+	});
+
 	$('#teamLead').select2({
 		width: '100%',
 		placeholder: 'Select a state',
@@ -296,7 +302,7 @@ $(function () {
 		allowClear: true,
 		ajax: {
 			transport: function (params, success, failure) {
-				employeeService.getAll().then(function (result) {
+				equipmentService.getAll().then(function (result) {
 					console.log(result);
 					success({
 						results: result.map((x) => {
@@ -330,7 +336,7 @@ $(function () {
 		allowClear: true,
 		ajax: {
 			transport: function (params, success, failure) {
-				employeeService.getAll().then(function (result) {
+				equipmentService.getAll().then(function (result) {
 					console.log(result);
 					success({
 						results: result.map((x) => {
@@ -356,6 +362,24 @@ $(function () {
 		templateSelection: (data) => data.text,
 		dropdownParent: $('#taskPersonalModal'),
 	});
+
+	$('#saveTask').click(function(){
+		let setTaskInputDto = {
+			StartDateTime:$('#startWorkDateTime').val(),
+			JointIds:$('#').val(),
+			EquipmentIds:$('#tools').val(),
+			MainEquipmentIds:$('#mainDevice').val(),
+			TeamLeadId:$('#teamLead').val(),
+			EmployeeIds:$('#inspectors').val(),
+			ValidCertificateId:$('#validCertificate').val(),
+
+
+			
+		}
+		console.log(setTaskInputDto);
+		// await bookService.update(bookDto);
+		// $('#taskPersonalModal').modal('hide');
+	})
 
 
 })
