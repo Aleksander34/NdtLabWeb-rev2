@@ -5,10 +5,10 @@ class JointService {
 		this.url = APP_CONSTS.SERVER_URL + 'api/Joints';
 	}
 
-	async getAll(file) {
-		let result=null;
+	async getAll(input) {
+		let result = null;
 		await axios
-			.get(this.url + '/GetAll')
+			.post(this.url + '/GetAll', input)
 			.then(function (response) {
 				result = response.data;
 				console.log(result);
@@ -18,6 +18,5 @@ class JointService {
 			});
 		return result;
 	}
-
 }
 export default new JointService();

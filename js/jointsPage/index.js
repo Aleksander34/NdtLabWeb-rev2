@@ -129,7 +129,10 @@ $(function () {
 			$('[data-bs-toggle="tooltip"]').tooltip();
 		},
 		ajax: async (data, success, failure) => {
-			let result = await jointService.getAll();
+			let filters = {};
+			filters.countOnPage = data.length; //входный данные фильтров
+			filters.skipCount = data.start; //входный данные фильтров
+			let result = await jointService.getAll(filters);
 			success(result);
 		},
 		columns: [

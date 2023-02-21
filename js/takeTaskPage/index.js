@@ -1,4 +1,11 @@
+import jointService from '../api/jointService.js';
+import inspectionService from '../api/inspectionService.js';
+import employeeService from '../api/employeeService.js';
+import equipmentService from '../api/equipmentService.js';
 $(function () {
+	var _$modal = $('#exampleModal'),
+		_$table = $('#takeTaskTable');
+
 	$('.requestType').click(function () {
 		$('.requestType').removeClass('active');
 		$(this).addClass('active');
@@ -40,6 +47,7 @@ $(function () {
 		}
 	});
 
+	//таблица
 	let language = {
 		emptyTable: 'нет данных',
 		info: 'показано c: _START_ по: _END_ из: _TOTAL_',
@@ -86,7 +94,11 @@ $(function () {
 				targets: 0,
 				data: null,
 				render: function (data, type, row, meta) {
-					return `<input type="checkbox" class="JointTask" data-id="${row.id}">` + (meta.row + meta.settings._iDisplayStart + 1);
+					return (
+						`<input type="checkbox" class="JointTask" data-id="${row.id}">` +
+						`<button data-bs-toggle="modal" data-bs-target="#inspectionResultModal" data-id="${row.id}" class="btn btn-primary">Результаты контроля</button>` +
+						(meta.row + meta.settings._iDisplayStart + 1)
+					);
 				},
 			},
 			{

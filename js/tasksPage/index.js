@@ -3,9 +3,8 @@ import inspectionService from '../api/inspectionService.js';
 import employeeService from '../api/employeeService.js';
 import equipmentService from '../api/equipmentService.js';
 $(function () {
-
 	var _$modal = $('#exampleModal'),
-	_$table = $('#example');
+		_$table = $('#example');
 
 	$('.requestType').click(function () {
 		$('.requestType').removeClass('active');
@@ -47,7 +46,6 @@ $(function () {
 			$('#mainFilters select').val('default').change();
 		}
 	});
-
 
 	let language = {
 		emptyTable: 'нет данных',
@@ -206,8 +204,6 @@ $(function () {
 		],
 	});
 
-	
-
 	new AirDatepicker('#jointsDate', {
 		range: true,
 		multipleDatesSeparator: ' - ',
@@ -234,7 +230,7 @@ $(function () {
 				});
 			},
 		},
-		
+
 		templateResult: (data) => data.text,
 		templateSelection: (data) => data.text,
 		dropdownParent: $('#taskPersonalModal'),
@@ -363,23 +359,18 @@ $(function () {
 		dropdownParent: $('#taskPersonalModal'),
 	});
 
-	$('#saveTask').click(function(){
+	$('#saveTask').click(function () {
 		let setTaskInputDto = {
-			StartDateTime:$('#startWorkDateTime').val(),
-			JointIds:$('#').val(),
-			EquipmentIds:$('#tools').val(),
-			MainEquipmentIds:$('#mainDevice').val(),
-			TeamLeadId:$('#teamLead').val(),
-			EmployeeIds:$('#inspectors').val(),
-			ValidCertificateId:$('#validCertificate').val(),
-
-
-			
-		}
+			StartDateTime: $('#startWorkDateTime').val(),
+			JointIds: $('#').val(),
+			EquipmentIds: $('#tools').val(),
+			MainEquipmentIds: $('#mainDevice').val(),
+			TeamLeadId: $('#teamLead').val(),
+			EmployeeIds: $('#inspectors').val(),
+			ValidCertificateId: $('#validCertificate').val(),
+		};
 		console.log(setTaskInputDto);
 		// await bookService.update(bookDto);
 		// $('#taskPersonalModal').modal('hide');
-	})
-
-
-})
+	});
+});
