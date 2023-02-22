@@ -106,7 +106,7 @@ $(function () {
 
 	let data = [];
 
-	_$table.DataTable({
+	let jointsTable = _$table.DataTable({
 		processing: true,
 		serverSide: true,
 		paging: true,
@@ -464,4 +464,68 @@ $(function () {
 	$(document).on('click', '.btn-inspectionHistory', function () {
 		$('#inspectionHistory').removeClass('d-none');
 	});
+
+	$('[data-type]').click(function () {
+		let type = $(this).data('type')
+		console.log(type);
+		switch(type){
+			case 'piping': 
+			{
+						jointsTable.column('4').visible(true);
+						jointsTable.column('5').visible(true);
+						jointsTable.column('6').visible(true);
+						jointsTable.column('7').visible(false);
+						jointsTable.column('8').visible(false);
+						jointsTable.column('9').visible(false);
+						jointsTable.column('10').visible(false);
+			}
+				break;
+				case 'tanks': 
+				{
+					jointsTable.column('4').visible(false);
+					jointsTable.column('5').visible(false);
+					jointsTable.column('6').visible(false);
+					jointsTable.column('7').visible(false);
+					jointsTable.column('8').visible(false);
+					jointsTable.column('9').visible(true);
+					jointsTable.column('10').visible(false);
+				}
+					break;
+					case 'steelStructure': 
+				{
+					jointsTable.column('4').visible(false);
+					jointsTable.column('5').visible(false);
+					jointsTable.column('6').visible(false);
+					jointsTable.column('7').visible(true);
+					jointsTable.column('8').visible(false);
+					jointsTable.column('9').visible(false);
+					jointsTable.column('10').visible(false);
+				}
+					break;
+					case 'pipeLine': 
+					{
+						jointsTable.column('4').visible(false);
+						jointsTable.column('5').visible(false);
+						jointsTable.column('6').visible(false);
+						jointsTable.column('7').visible(false);
+						jointsTable.column('8').visible(false);
+						jointsTable.column('9').visible(false);
+						jointsTable.column('10').visible(true);
+					}
+						break;
+						case 'qualification': 
+						{
+							jointsTable.column('4').visible(false);
+							jointsTable.column('5').visible(false);
+							jointsTable.column('6').visible(false);
+							jointsTable.column('7').visible(false);
+							jointsTable.column('8').visible(false);
+							jointsTable.column('9').visible(false);
+							jointsTable.column('10').visible(false);
+						}
+							break;
+		}
+
+	});
+
 });

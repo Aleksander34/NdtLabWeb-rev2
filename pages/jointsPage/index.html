@@ -1,681 +1,681 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Joints Table</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
-		<link rel="stylesheevit" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-			integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link rel="stylesheet" href="/libs/airDatePicker/index.css" />
-		<link rel="stylesheet" href="/css/style.css" />
-	</head>
-	<body>
-		<!-- Меню вертикальное всплывающее -->
-		<div class="sidebar close">
-			<!-- логотип -->
-			<div class="logo-details">
-				<i class="fa-solid fa-flask"></i>
-				<span class="logo_name">NDTLab</span>
-			</div>
-			<ul class="nav-links">
-				<!-- отчетность вкладка -->
-				<li>
-					<div class="iocn-link">
-						<a href="#">
-							<i class="fa-solid fa-chart-line"></i>
-							<span class="link_name">Отчетность</span>
-						</a>
-						<i class="fa-solid fa-caret-down arrow"></i>
-					</div>
-					<ul class="sub-menu">
-						<li><a class="link_name" href="#">Отчетность</a></li>
-						<li><a href="#">Графики</a></li>
-						<li><a href="#">Таблицы</a></li>
-					</ul>
-				</li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joints Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheevit" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/libs/airDatePicker/index.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Меню вертикальное всплывающее -->
+    <div class="sidebar close">
+      <!-- логотип -->
+      <div class="logo-details">
+        <i class="fa-solid fa-flask"></i>
+        <span class="logo_name">NDTLab</span>
+      </div>
+      <ul class="nav-links">
+        <!-- отчетность вкладка -->
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="link_name">Отчетность</span>
+            </a>
+            <i class="fa-solid fa-caret-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Отчетность</a></li>
+            <li><a href="#">Графики</a></li>
+            <li><a href="#">Таблицы</a></li>
+          </ul>
+        </li>
 
-				<!-- таблица стыков вкладка -->
-				<li>
-					<div class="iocn-link">
-						<a href="#">
-							<i class="fa-solid fa-table"></i>
-							<span class="link_name">Стыки</span>
-						</a>
-						<i class="fa-solid fa-caret-down arrow"></i>
-					</div>
-					<ul class="sub-menu">
-						<li><a class="link_name" href="#">Стыки</a></li>
-						<li><a href="#">Таблица стыков</a></li>
-						<li><a href="#">После контроля</a></li>
-					</ul>
-				</li>
+        <!-- таблица стыков вкладка -->
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class="fa-solid fa-table"></i>
+              <span class="link_name">Стыки</span>
+            </a>
+            <i class="fa-solid fa-caret-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Стыки</a></li>
+            <li><a href="#">Таблица стыков</a></li>
+            <li><a href="#">После контроля</a></li>
+          </ul>
+        </li>
 
-				<!-- меню заданий вкладка -->
-				<li>
-					<div class="iocn-link">
-						<a href="#">
-							<i class="fa-solid fa-list-check"></i>
-							<span class="link_name">Задания</span>
-						</a>
-						<i class="fa-solid fa-caret-down arrow"></i>
-					</div>
-					<ul class="sub-menu">
-						<li><a class="link_name" href="#">Задания</a></li>
-						<li><a href="#">Меню заданий</a></li>
-						<li><a href="#">Получить задание</a></li>
-					</ul>
-				</li>
+        <!-- меню заданий вкладка -->
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class="fa-solid fa-list-check"></i>
+              <span class="link_name">Задания</span>
+            </a>
+            <i class="fa-solid fa-caret-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Задания</a></li>
+            <li><a href="#">Меню заданий</a></li>
+            <li><a href="#">Получить задание</a></li>
+          </ul>
+        </li>
 
-				<!-- меню персонал вкладка -->
-				<li>
-					<div class="iocn-link">
-						<a href="#">
-							<i class="fa-solid fa-user-group"></i>
-							<span class="link_name">Персонал</span>
-						</a>
-						<i class="fa-solid fa-caret-down arrow"></i>
-					</div>
-					<ul class="sub-menu">
-						<li><a class="link_name" href="#">Персонал</a></li>
-						<li><a href="#">Персонал 1</a></li>
-						<li><a href="#">Персонал 2</a></li>
-					</ul>
-				</li>
+        <!-- меню персонал вкладка -->
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class="fa-solid fa-user-group"></i>
+              <span class="link_name">Персонал</span>
+            </a>
+            <i class="fa-solid fa-caret-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Персонал</a></li>
+            <li><a href="#">Персонал 1</a></li>
+            <li><a href="#">Персонал 2</a></li>
+          </ul>
+        </li>
 
-				<!-- меню оборудования вкладка -->
-				<li>
-					<div class="iocn-link">
-						<a href="#">
-							<i class="fa-solid fa-screwdriver-wrench"></i>
-							<span class="link_name">Оборудование</span>
-						</a>
-						<i class="fa-solid fa-caret-down arrow"></i>
-					</div>
-					<ul class="sub-menu">
-						<li><a class="link_name" href="#">Оборудование</a></li>
-						<li><a href="#">Оборудование 1</a></li>
-						<li><a href="#">Оборудование 2</a></li>
-					</ul>
-				</li>
+        <!-- меню оборудования вкладка -->
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <span class="link_name">Оборудование</span>
+            </a>
+            <i class="fa-solid fa-caret-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Оборудование</a></li>
+            <li><a href="#">Оборудование 1</a></li>
+            <li><a href="#">Оборудование 2</a></li>
+          </ul>
+        </li>
 
-				<!-- меню архив вкладка -->
-				<li>
-					<div class="iocn-link">
-						<a href="#">
-							<i class="fa-solid fa-box-archive"></i>
-							<span class="link_name">Архив</span>
-						</a>
-						<i class="fa-solid fa-caret-down arrow"></i>
-					</div>
-					<ul class="sub-menu">
-						<li><a class="link_name" href="#">Архив</a></li>
-						<li><a href="#">Архив 1</a></li>
-						<li><a href="#">Архив 2</a></li>
-					</ul>
-				</li>
+        <!-- меню архив вкладка -->
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class="fa-solid fa-box-archive"></i>
+              <span class="link_name">Архив</span>
+            </a>
+            <i class="fa-solid fa-caret-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Архив</a></li>
+            <li><a href="#">Архив 1</a></li>
+            <li><a href="#">Архив 2</a></li>
+          </ul>
+        </li>
 
-				<!-- Информация о пользователе/фото/выход -->
-				<li>
-					<div class="profile-details">
-						<div class="profile-content">
-							<!-- <img src="/userPhoto" alt="" /> -->
-						</div>
-						<div class="name-job">
-							<div class="profile_name">Фамилия И.О.</div>
-							<div class="job">Должность</div>
-						</div>
-						<i class="fa-solid fa-right-from-bracket"></i>
-					</div>
-				</li>
-				<!-- еденичное содержимое -->
-				<li>
-					<a href="#">
-						<i class="fa-solid fa-table"></i>
-						<span class="link_name">Таблица стыков</span>
-					</a>
-					<ul class="sub-menu blank">
-						<li><a class="link_name" href="#">Таблица стыков</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
+        <!-- Информация о пользователе/фото/выход -->
+        <li>
+          <div class="profile-details">
+            <div class="profile-content">
+              <!-- <img src="/userPhoto" alt="" /> -->
+            </div>
+            <div class="name-job">
+              <div class="profile_name">Фамилия И.О.</div>
+              <div class="job">Должность</div>
+            </div>
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </div>
+        </li>
+        <!-- еденичное содержимое -->
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-table"></i>
+            <span class="link_name">Таблица стыков</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Таблица стыков</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
-		<!-- Горизонтальная полоса и содержимое страницы -->
-		<div class="home-section">
-			<!-- горизонтальная полоса с иконкой меню -->
-			<div class="horizontal-line">
-				<i class="fa-solid fa-bars bx-menu"></i>
-				<span class="text">Меню</span>
-				<!-- указатель текущего пути -->
-				<nav class="ms-4 mt-2" aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Главная страница</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Таблица стыков</li>
-					</ol>
-				</nav>
-			</div>
+    <!-- Горизонтальная полоса и содержимое страницы -->
+    <div class="home-section">
+      <!-- горизонтальная полоса с иконкой меню -->
+      <div class="horizontal-line">
+        <i class="fa-solid fa-bars bx-menu"></i>
+        <span class="text">Меню</span>
+        <!-- указатель текущего пути -->
+        <nav class="ms-4 mt-2" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная страница</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Таблица стыков</li>
+          </ol>
+        </nav>
+      </div>
 
-			<!--содержимое страницы -->
-			<div class="content-wrapper">
-				<div class="container-fluid px-3">
-					<div class="row">
-						<div class="col">
-							<!-- кнопка создать заявку, открывает модальное окно -->
-							<button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-plus"></i> Создать заявку</button>
-						</div>
-					</div>
+      <!--содержимое страницы -->
+      <div class="content-wrapper">
+        <div class="container-fluid px-3">
+          <div class="row">
+            <div class="col">
+              <!-- кнопка создать заявку, открывает модальное окно -->
+              <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-plus"></i> Создать заявку</button>
+            </div>
+          </div>
 
-					<!-- Фильтры таблицы -->
-					<div class="joints__filters">
-						<div class="row mb-3 mt-3">
-							<div class="col-3">
-								<label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
-								<div>
-									<div class="btn-group" role="group" aria-label="Basic example">
-										<button type="button" id="productionRequest2" class="btn btn-primary active">Производство</button>
-										<button type="button" id="qualificationRequest2" class="btn btn-primary">Квалификация</button>
-									</div>
-								</div>
-							</div>
-							<div class="col-4">
-								<label for="exampleFormControlInput1" class="form-label">тип чегото там</label>
-								<div>
-									<div id="productionRequestType2" class="btn-group" role="group" aria-label="Basic example">
-										<button type="button" class="btn btn-primary requestType">Т/T</button>
-										<button type="button" class="btn btn-primary requestType">РВС</button>
-										<button type="button" class="btn btn-primary requestType">МК</button>
-										<button type="button" class="btn btn-primary requestType">ЛЧ</button>
-									</div>
-									<div id="qualificationRequestType2" class="btn-group d-none" role="group" aria-label="Basic example">
-										<button type="button" class="btn btn-primary requestType">ДС</button>
-										<button type="button" class="btn btn-primary requestType">ТР</button>
-										<button type="button" class="btn btn-primary requestType">PQR</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-3">
-								<label class="form-label" for="">Выбор даты</label>
-								<input class="form-control" type="text" name="" id="jointsDate" />
-							</div>
-						</div>
-					</div>
+          <!-- Фильтры таблицы -->
+          <div class="joints__filters">
+            <div class="row mb-3 mt-3">
+              <div class="col-3">
+                <label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
+                <div>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id="productionRequest2" class="btn btn-primary active">Производство</button>
+                    <button type="button" id="qualificationRequest2" class="btn btn-primary" data-type="qualification">Квалификация</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">тип чегото там</label>
+                <div>
+                  <div id="productionRequestType2" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary requestType" data-type="piping">Т/T</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="tanks">РВС</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="steelStructure">МК</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="pipeLine">ЛЧ</button>
+                  </div>
+                  <div id="qualificationRequestType2" class="requestType btn-group d-none" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary requestType">ДС</button>
+                    <button type="button" class="btn btn-primary requestType">ТР</button>
+                    <button type="button" class="btn btn-primary requestType">PQR</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <label class="form-label" for="">Выбор даты</label>
+                <input class="form-control" type="text" name="" id="jointsDate" />
+              </div>
+            </div>
+          </div>
 
-					<!-- Фильтры по результату контроля (годен ремонт вырез и т.д) -->
-					<div style="position: relative; min-width: 100%; height: 60px">
-						<div id="mainFilters" class="d-flex justify-content-between mb-5 mt-3 d-none" style="width: 1200px">
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>ВИК</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>МК/ПВК/ПВТ</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>УЗК</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>РК</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>ПАУТ</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>Аккустика</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="">
-								<div class="d-flex align-items-top">
-									<div>ЭК</div>
-									<div class="ms-2 form-check form-switch">
-										<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
-									</div>
-								</div>
-								<select name="" id="">
-									<option selected value="default">-</option>
-									<option value="1">нет контроля</option>
-									<option value="1">годен</option>
-									<option value="2">ремонт</option>
-									<option value="3">Н/Р</option>
-									<option value="4">вырез</option>
-								</select>
-							</div>
-							<div class="d-flex align-items-center">
-								<button id="checkAll" class="btn btn-primary">выбрать все</button>
-							</div>
-						</div>
-						<button id="inspectionResultFilterShowHide" class="btn btn-primary" style="position: absolute; right: 0px; top: 9px">показать фильтры</button>
-					</div>
+          <!-- Фильтры по результату контроля (годен ремонт вырез и т.д) -->
+          <div style="position: relative; min-width: 100%; height: 60px">
+            <div id="mainFilters" class="d-flex justify-content-between mb-5 mt-3 d-none" style="width: 1200px">
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>ВИК</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>МК/ПВК/ПВТ</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>УЗК</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>РК</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>ПАУТ</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>Аккустика</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="">
+                <div class="d-flex align-items-top">
+                  <div>ЭК</div>
+                  <div class="ms-2 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                  </div>
+                </div>
+                <select name="" id="">
+                  <option selected value="default">-</option>
+                  <option value="1">нет контроля</option>
+                  <option value="1">годен</option>
+                  <option value="2">ремонт</option>
+                  <option value="3">Н/Р</option>
+                  <option value="4">вырез</option>
+                </select>
+              </div>
+              <div class="d-flex align-items-center">
+                <button id="checkAll" class="btn btn-primary">выбрать все</button>
+              </div>
+            </div>
+            <button id="inspectionResultFilterShowHide" class="btn btn-primary" style="position: absolute; right: 0px; top: 9px">показать фильтры</button>
+          </div>
 
-					<!-- Таблица стыков -->
-					<div class="row">
-						<div class="col-6"></div>
-						<div class="col-6">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<button class="btn btn-secondary btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-								</div>
-								<input class="form-control" type="text" />
-							</div>
-						</div>
-					</div>
-					<div style="overflow-x: auto">
-						<table id="example" class="table table-striped joints-table tableFiltred">
-							<thead>
-								<tr>
-									<!-- <th></th> -->
-									<th class="colWithFilter" data-num="1">№</th>
-									<th class="colWithFilter1" data-num="2">Номер заявки</th>
-									<th>Подобъект</th>
-									<th class="colWithFilter1" data-num="3">Номер стыка</th>
-									<th>Зона(тт)</th>
-									<th>Линия(тт)</th>
-									<th>Спул(тт)</th>
-									<th>Номер узла(мк)</th>
-									<th>Номер сектора(мк)</th>
-									<th>Тип части резервуара(рв)</th>
-									<th>Километр(ЛЧ)</th>
-									<th>Тип соединения</th>
-									<th>Способ сварки</th>
-									<th>Клеймо сварщика</th>
-									<th>Дата Сварки</th>
-									<th>Дата Заявки</th>
-									<th>Элемент 1</th>
-									<th>Элемент 2</th>
-									<th>Диаметр 1</th>
-									<th>Диаметр 2</th>
-									<th>Толщина 1</th>
-									<th>Толщина 2</th>
-									<th>Марка стали 1</th>
-									<th>Марка стали 2</th>
-									<th>Категория ГОСТ</th>
-									<th>Иная категория</th>
-									<th>Требуемые испытания</th>
-								</tr>
-							</thead>
-							<tbody></tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+          <!-- Таблица стыков -->
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button class="btn btn-secondary btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+          </div>
+          <div style="overflow-x: auto">
+            <table id="example" class="table table-striped joints-table tableFiltred">
+              <thead>
+                <tr>
+                  <!-- <th></th> -->
+                  <th class="colWithFilter" data-num="1">№</th>
+                  <th class="colWithFilter1" data-num="2">Номер заявки</th>
+                  <th>Подобъект</th>
+                  <th class="colWithFilter1" data-num="3">Номер стыка</th>
+                  <th>Зона(тт)</th>
+                  <th>Линия(тт)</th>
+                  <th>Спул(тт)</th>
+                  <th>Номер узла(мк)</th>
+                  <th>Номер сектора(мк)</th>
+                  <th>Тип части резервуара(рв)</th>
+                  <th>Километр(ЛЧ)</th>
+                  <th>Тип соединения</th>
+                  <th>Способ сварки</th>
+                  <th>Клеймо сварщика</th>
+                  <th>Дата Сварки</th>
+                  <th>Дата Заявки</th>
+                  <th>Элемент 1</th>
+                  <th>Элемент 2</th>
+                  <th>Диаметр 1</th>
+                  <th>Диаметр 2</th>
+                  <th>Толщина 1</th>
+                  <th>Толщина 2</th>
+                  <th>Марка стали 1</th>
+                  <th>Марка стали 2</th>
+                  <th>Категория ГОСТ</th>
+                  <th>Иная категория</th>
+                  <th>Требуемые испытания</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-			<!-- подвал страницы -->
-			<footer class="main-footer ms-2">
-				<strong> Copyright &copy 2022 NdtLab; </strong>
-			</footer>
-		</div>
+      <!-- подвал страницы -->
+      <footer class="main-footer ms-2">
+        <strong> Copyright &copy 2022 NdtLab; </strong>
+      </footer>
+    </div>
 
-		<!-- модальное окно -->
-		<div class="modal fade joinModal" id="exampleModal" tabindex="-1">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Создание заявки</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<div class="mb-1">
-							<label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
-							<div class="btn-group" role="group" aria-label="Basic example">
-								<button type="button" id="productionRequest" class="btn btn-primary active">Производство</button>
-								<button type="button" id="qualificationRequest" class="btn btn-primary">Квалификация</button>
-							</div>
-						</div>
-						<div id="productionRequestType" class="mb-1">
-							<div class="btn-group" role="group" aria-label="Basic example">
-								<button type="button" class="btn btn-primary requestType">Трубопровод</button>
-								<button type="button" class="btn btn-primary requestType">Резервуар</button>
-								<button type="button" class="btn btn-primary requestType">Металлоконструкция</button>
-							</div>
-						</div>
-						<div id="qualificationRequestType" class="mb-1 d-none">
-							<div class="btn-group" role="group" aria-label="Basic example">
-								<button type="button" class="btn btn-primary requestType">ДС</button>
-								<button type="button" class="btn btn-primary requestType">ТР</button>
-								<button type="button" class="btn btn-primary requestType">PQR</button>
-							</div>
-						</div>
-						<div class="mb-1">
-							<label for="requestFile" class="form-label">Файл заявки</label>
-							<input id="requestFile" class="form-control" type="file" accept=".xlsb, .xls, .xlsx" />
-						</div>
+    <!-- модальное окно -->
+    <div class="modal fade joinModal" id="exampleModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Создание заявки</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-1">
+              <label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="productionRequest" class="btn btn-primary active">Производство</button>
+                <button type="button" id="qualificationRequest" class="btn btn-primary">Квалификация</button>
+              </div>
+            </div>
+            <div id="productionRequestType" class="mb-1">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary requestType">Трубопровод</button>
+                <button type="button" class="btn btn-primary requestType">Резервуар</button>
+                <button type="button" class="btn btn-primary requestType">Металлоконструкция</button>
+              </div>
+            </div>
+            <div id="qualificationRequestType" class="mb-1 d-none">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary requestType">ДС</button>
+                <button type="button" class="btn btn-primary requestType">ТР</button>
+                <button type="button" class="btn btn-primary requestType">PQR</button>
+              </div>
+            </div>
+            <div class="mb-1">
+              <label for="requestFile" class="form-label">Файл заявки</label>
+              <input id="requestFile" class="form-control" type="file" accept=".xlsb, .xls, .xlsx" />
+            </div>
 
-						<div id="requestPreviewInfo" class="d-none">
-							<div class="mb-1 row">
-								<div class="col"><label for="requestFile" class="form-label">Заявка НК №: </label><span id="requestNumber"></span></div>
-								<div class="col"><label for="requestFile" class="form-label">Дата: </label><span id="requestData"></span></div>
-							</div>
+            <div id="requestPreviewInfo" class="d-none">
+              <div class="mb-1 row">
+                <div class="col"><label for="requestFile" class="form-label">Заявка НК №: </label><span id="requestNumber"></span></div>
+                <div class="col"><label for="requestFile" class="form-label">Дата: </label><span id="requestData"></span></div>
+              </div>
 
-							<div class="row mb-3 jointModel__info">
-								<div class="col">
-									<ul class="list-group jointModel__infoLeft">
-										<li class="list-group-item"><strong>Наименование строительной организации (сварка):</strong><span id="requestWeldingCompany"></span></li>
-										<li class="list-group-item"><strong>Подразделение компании (участок): </strong><span id="divisionName"></span></li>
-										<li class="list-group-item"><strong>Объект строительства: </strong><span id="requestObject"></span></li>
-										<li class="list-group-item"><strong>Наименование части объекта?: </strong><span id="requestPartObject"></span></li>
-										<li class="list-group-item"><strong>Категория ГОСТ: </strong><span id="requestCategoryGost"></span></li>
-										<li class="list-group-item"><strong>Категория прочие документы ?:</strong><span id="requestOtherCategory"></span></li>
-										<li class="list-group-item"><strong>Номер чертежа ?: </strong><span id="requestDraw"></span></li>
-										<li class="list-group-item"><strong>Температура ?: </strong><span id="requestTemperature"></span></li>
-									</ul>
-									<ul class="list-group mt-4">
-										<li class="list-group-item"><strong>НТД основное?: </strong><span id="requestReferencesDocMainDoc"></span></li>
-										<li class="list-group-item"><strong>НТД сварка?: </strong><span id="requestReferencesDocWeldingDoc"></span></li>
-										<li class="list-group-item"><strong>НТД контроль?:</strong><span id="requestReferencesDocInspectionDoc"></span></li>
-										<li class="list-group-item"><strong>НТД оценка качества?:</strong><span id="requestReferencesDocQualityCriteria"></span></li>
-									</ul>
-								</div>
-								<div class="col">
-									<div class="jointModel__infoRight">
-										<ul class="list-group">
-											<li class="list-group-item"><strong>Т/Т Номер зоны: </strong><span id="requestPipingZone"></span></li>
-											<li class="list-group-item"><strong>Т/Т Номер линии: </strong><span id="requestPipingLine"></span></li>
-											<li class="list-group-item"><strong>Т/Т Номер спула: </strong><span id="requestPipingSpool"></span></li>
-											<li class="list-group-item"><strong>М/К Номер сектора: </strong><span id="requestSteelStructureSector"></span></li>
-											<li class="list-group-item"><strong>М/К Номер узла: </strong><span id="requestSteelStructurePart"></span></li>
-											<li class="list-group-item"><strong>РВС Тип части РВС: </strong><span id="tankPart"></span></li>
-											<li class="list-group-item"><strong>ЛТ/ЛЧ Километр: </strong><span id="requestPipeLineDistance"></span></li>
-											<li class="list-group-item"><strong>Арматура Да или Пустая ячейка: </strong><span id="requestRebar"></span></li>
-											<li class="list-group-item"><strong>Квалификация Тип квалификации: </strong><span id="QualificationType"></span></li>
-										</ul>
-										<ul class="list-group mt-4">
-											<li class="list-group-item"><strong>Заявку подал: </strong><span id="requestSubmittedBy"></span></li>
-											<li class="list-group-item"><strong>Заявку принял: </strong><span id="requestReceivedByFio"></span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="w-100">
-								<table id="requestPreviewTable" class="table table-striped joints-table">
-									<thead>
-										<tr>
-											<th>Номер стыка</th>
-											<th>Дата Сварки</th>
-											<th>Способ сварки</th>
-											<th>Тип соединения</th>
-											<th>Элемент 1</th>
-											<th>Элемент 2</th>
-											<th>Диаметр 1</th>
-											<th>Диаметр 2</th>
-											<th>Толщина 1</th>
-											<th>Толщина 2</th>
-											<th>Марка стали 1</th>
-											<th>Марка стали 2</th>
-											<th>Клеймо сварщика</th>
-											<th>Требуемые испытания</th>
-											<th>Протяженность шва</th>
-											<th>Примечание</th>
-										</tr>
-									</thead>
-									<tbody></tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-						<button type="button" id="saveRequest" class="btn btn-primary">Сохранить</button>
-					</div>
-				</div>
-			</div>
-		</div>
+              <div class="row mb-3 jointModel__info">
+                <div class="col">
+                  <ul class="list-group jointModel__infoLeft">
+                    <li class="list-group-item"><strong>Наименование строительной организации (сварка):</strong><span id="requestWeldingCompany"></span></li>
+                    <li class="list-group-item"><strong>Подразделение компании (участок): </strong><span id="divisionName"></span></li>
+                    <li class="list-group-item"><strong>Объект строительства: </strong><span id="requestObject"></span></li>
+                    <li class="list-group-item"><strong>Наименование части объекта?: </strong><span id="requestPartObject"></span></li>
+                    <li class="list-group-item"><strong>Категория ГОСТ: </strong><span id="requestCategoryGost"></span></li>
+                    <li class="list-group-item"><strong>Категория прочие документы ?:</strong><span id="requestOtherCategory"></span></li>
+                    <li class="list-group-item"><strong>Номер чертежа ?: </strong><span id="requestDraw"></span></li>
+                    <li class="list-group-item"><strong>Температура ?: </strong><span id="requestTemperature"></span></li>
+                  </ul>
+                  <ul class="list-group mt-4">
+                    <li class="list-group-item"><strong>НТД основное?: </strong><span id="requestReferencesDocMainDoc"></span></li>
+                    <li class="list-group-item"><strong>НТД сварка?: </strong><span id="requestReferencesDocWeldingDoc"></span></li>
+                    <li class="list-group-item"><strong>НТД контроль?:</strong><span id="requestReferencesDocInspectionDoc"></span></li>
+                    <li class="list-group-item"><strong>НТД оценка качества?:</strong><span id="requestReferencesDocQualityCriteria"></span></li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <div class="jointModel__infoRight">
+                    <ul class="list-group">
+                      <li class="list-group-item"><strong>Т/Т Номер зоны: </strong><span id="requestPipingZone"></span></li>
+                      <li class="list-group-item"><strong>Т/Т Номер линии: </strong><span id="requestPipingLine"></span></li>
+                      <li class="list-group-item"><strong>Т/Т Номер спула: </strong><span id="requestPipingSpool"></span></li>
+                      <li class="list-group-item"><strong>М/К Номер сектора: </strong><span id="requestSteelStructureSector"></span></li>
+                      <li class="list-group-item"><strong>М/К Номер узла: </strong><span id="requestSteelStructurePart"></span></li>
+                      <li class="list-group-item"><strong>РВС Тип части РВС: </strong><span id="tankPart"></span></li>
+                      <li class="list-group-item"><strong>ЛТ/ЛЧ Километр: </strong><span id="requestPipeLineDistance"></span></li>
+                      <li class="list-group-item"><strong>Арматура Да или Пустая ячейка: </strong><span id="requestRebar"></span></li>
+                      <li class="list-group-item"><strong>Квалификация Тип квалификации: </strong><span id="QualificationType"></span></li>
+                    </ul>
+                    <ul class="list-group mt-4">
+                      <li class="list-group-item"><strong>Заявку подал: </strong><span id="requestSubmittedBy"></span></li>
+                      <li class="list-group-item"><strong>Заявку принял: </strong><span id="requestReceivedByFio"></span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="w-100">
+                <table id="requestPreviewTable" class="table table-striped joints-table">
+                  <thead>
+                    <tr>
+                      <th>Номер стыка</th>
+                      <th>Дата Сварки</th>
+                      <th>Способ сварки</th>
+                      <th>Тип соединения</th>
+                      <th>Элемент 1</th>
+                      <th>Элемент 2</th>
+                      <th>Диаметр 1</th>
+                      <th>Диаметр 2</th>
+                      <th>Толщина 1</th>
+                      <th>Толщина 2</th>
+                      <th>Марка стали 1</th>
+                      <th>Марка стали 2</th>
+                      <th>Клеймо сварщика</th>
+                      <th>Требуемые испытания</th>
+                      <th>Протяженность шва</th>
+                      <th>Примечание</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="button" id="saveRequest" class="btn btn-primary">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<!-- модальное окно ремонтов устарело -->
-		<div id="repairCountModal" class="modal" tabindex="-1">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Modal title</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<table id="repairCountTable" class="table">
-							<thead>
-								<tr>
-									<th>№</th>
-									<th>Номер заявки</th>
-									<th>Номер стыка</th>
-									<th>Способ сварки</th>
-									<th>Клеймо сварщика</th>
-									<th>Дата Сварки</th>
-									<th>Дата Заявки</th>
-									<th>Методы контроля</th>
-									<th>Метод испытания РК</th>
-									<th>Дата контроля РК</th>
-									<th>Дата заключения РК</th>
-									<th>Номер заключения РК</th>
-									<th>Результат контроля РК</th>
-									<th>Описание дефектов РК</th>
-									<th>Метод испытания PAUT</th>
-									<th>Дата контроля PAUT</th>
-									<th>Дата заключения PAUT</th>
-									<th>Номер заключения PAUT</th>
-									<th>Результат контроля PAUT</th>
-									<th>Описание дефектов PAUT</th>
-									<th>Метод испытания УЗК</th>
-									<th>Дата контроля УЗК</th>
-									<th>Дата заключения УЗК</th>
-									<th>Номер заключения УЗК</th>
-									<th>Результат контроля УЗК</th>
-									<th>Описание дефектов УЗК</th>
-									<th>Метод испытания ПВК</th>
-									<th>Дата контроля ПВК</th>
-									<th>Дата заключения ПВК</th>
-									<th>Номер заключения ПВК</th>
-									<th>Результат контроля ПВК</th>
-									<th>Описание дефектов ПВК</th>
-									<th>Метод испытания МК</th>
-									<th>Дата контроля МК</th>
-									<th>Дата заключения МК</th>
-									<th>Номер заключения МК</th>
-									<th>Результат контроля МК</th>
-									<th>Описание дефектов МК</th>
-									<th>Метод испытания ВИК</th>
-									<th>Дата контроля ВИК</th>
-									<th>Дата заключения ВИК</th>
-									<th>Номер заключения ВИК</th>
-									<th>Результат контроля ВИК</th>
-									<th>Описание дефектов ВИК</th>
-									<th>Метод испытания ПВТ</th>
-									<th>Дата контроля ПВТ</th>
-									<th>Дата заключения ПВТ</th>
-									<th>Номер заключения ПВТ</th>
-									<th>Результат контроля ПВТ</th>
-									<th>Описание дефектов ПВТ</th>
-								</tr>
-							</thead>
-							<tbody></tbody>
-						</table>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
-			</div>
-		</div>
+    <!-- модальное окно ремонтов устарело -->
+    <div id="repairCountModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table id="repairCountTable" class="table">
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Номер заявки</th>
+                  <th>Номер стыка</th>
+                  <th>Способ сварки</th>
+                  <th>Клеймо сварщика</th>
+                  <th>Дата Сварки</th>
+                  <th>Дата Заявки</th>
+                  <th>Методы контроля</th>
+                  <th>Метод испытания РК</th>
+                  <th>Дата контроля РК</th>
+                  <th>Дата заключения РК</th>
+                  <th>Номер заключения РК</th>
+                  <th>Результат контроля РК</th>
+                  <th>Описание дефектов РК</th>
+                  <th>Метод испытания PAUT</th>
+                  <th>Дата контроля PAUT</th>
+                  <th>Дата заключения PAUT</th>
+                  <th>Номер заключения PAUT</th>
+                  <th>Результат контроля PAUT</th>
+                  <th>Описание дефектов PAUT</th>
+                  <th>Метод испытания УЗК</th>
+                  <th>Дата контроля УЗК</th>
+                  <th>Дата заключения УЗК</th>
+                  <th>Номер заключения УЗК</th>
+                  <th>Результат контроля УЗК</th>
+                  <th>Описание дефектов УЗК</th>
+                  <th>Метод испытания ПВК</th>
+                  <th>Дата контроля ПВК</th>
+                  <th>Дата заключения ПВК</th>
+                  <th>Номер заключения ПВК</th>
+                  <th>Результат контроля ПВК</th>
+                  <th>Описание дефектов ПВК</th>
+                  <th>Метод испытания МК</th>
+                  <th>Дата контроля МК</th>
+                  <th>Дата заключения МК</th>
+                  <th>Номер заключения МК</th>
+                  <th>Результат контроля МК</th>
+                  <th>Описание дефектов МК</th>
+                  <th>Метод испытания ВИК</th>
+                  <th>Дата контроля ВИК</th>
+                  <th>Дата заключения ВИК</th>
+                  <th>Номер заключения ВИК</th>
+                  <th>Результат контроля ВИК</th>
+                  <th>Описание дефектов ВИК</th>
+                  <th>Метод испытания ПВТ</th>
+                  <th>Дата контроля ПВТ</th>
+                  <th>Дата заключения ПВТ</th>
+                  <th>Номер заключения ПВТ</th>
+                  <th>Результат контроля ПВТ</th>
+                  <th>Описание дефектов ПВТ</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<!-- модальное окно испытаний -->
-		<div id="inspectionModal" class="modal" tabindex="-1">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Modal title</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<h3>Дата Сварки</h3>
-						<table id="inspectionTable" class="table table-striped w-100">
-							<thead>
-								<tr>
-									<th>Метод контроля</th>
-									<th>результат контроля</th>
-									<th>дата контроля</th>
-									<th>Дата заявки</th>
-									<th>номер заключения</th>
-									<th>дата заключения</th>
-									<th>описание дефектов</th>
-									<th>тип</th>
-									<th>Время в работе с по</th>
-								</tr>
-							</thead>
-							<tbody></tbody>
-						</table>
+    <!-- модальное окно испытаний -->
+    <div id="inspectionModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h3>Дата Сварки</h3>
+            <table id="inspectionTable" class="table table-striped w-100">
+              <thead>
+                <tr>
+                  <th>Метод контроля</th>
+                  <th>результат контроля</th>
+                  <th>дата контроля</th>
+                  <th>Дата заявки</th>
+                  <th>номер заключения</th>
+                  <th>дата заключения</th>
+                  <th>описание дефектов</th>
+                  <th>тип</th>
+                  <th>Время в работе с по</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
 
-						<!-- вторая таблица история изменений -->
-						<div id="inspectionHistory" class="mt-5 d-none">
-							<h3>метод контроля: РК</h3>
-							<table id="inspectionHistoryTable" class="table">
-								<thead>
-									<tr>
-										<th>результат контроля</th>
-										<th>дата контроля</th>
-										<th>Дата заявки</th>
-										<th>Дата Сварки</th>
-										<th>номер заключения</th>
-										<th>описание дефектов</th>
-										<th>тип</th>
-										<th>клеймо сварщика</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th>ремонт</th>
-										<th>01.01.2020</th>
-										<th>01.01.2020</th>
-										<th>01.01.2020</th>
-										<th>заключение №1</th>
-										<th>несплавление непровар поры</th>
-										<th>НР</th>
-										<th>сварщик Вася</th>
-									</tr>
-									<tr>
-										<th>ремонт</th>
-										<th>01.01.2020</th>
-										<th>01.01.2020</th>
-										<th>01.01.2020</th>
-										<th>заключение №1</th>
-										<th>несплавление непровар поры</th>
-										<th>НР</th>
-										<th>сварщик Вася</th>
-									</tr>
-									<tr>
-										<th>ремонт</th>
-										<th>01.01.2020</th>
-										<th>01.01.2020</th>
-										<th>01.01.2020</th>
-										<th>заключение №1</th>
-										<th>несплавление непровар поры</th>
-										<th>НР</th>
-										<th>сварщик Вася</th>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
-			</div>
-		</div>
+            <!-- вторая таблица история изменений -->
+            <div id="inspectionHistory" class="mt-5 d-none">
+              <h3>метод контроля: РК</h3>
+              <table id="inspectionHistoryTable" class="table">
+                <thead>
+                  <tr>
+                    <th>результат контроля</th>
+                    <th>дата контроля</th>
+                    <th>Дата заявки</th>
+                    <th>Дата Сварки</th>
+                    <th>номер заключения</th>
+                    <th>описание дефектов</th>
+                    <th>тип</th>
+                    <th>клеймо сварщика</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>ремонт</th>
+                    <th>01.01.2020</th>
+                    <th>01.01.2020</th>
+                    <th>01.01.2020</th>
+                    <th>заключение №1</th>
+                    <th>несплавление непровар поры</th>
+                    <th>НР</th>
+                    <th>сварщик Вася</th>
+                  </tr>
+                  <tr>
+                    <th>ремонт</th>
+                    <th>01.01.2020</th>
+                    <th>01.01.2020</th>
+                    <th>01.01.2020</th>
+                    <th>заключение №1</th>
+                    <th>несплавление непровар поры</th>
+                    <th>НР</th>
+                    <th>сварщик Вася</th>
+                  </tr>
+                  <tr>
+                    <th>ремонт</th>
+                    <th>01.01.2020</th>
+                    <th>01.01.2020</th>
+                    <th>01.01.2020</th>
+                    <th>заключение №1</th>
+                    <th>несплавление непровар поры</th>
+                    <th>НР</th>
+                    <th>сварщик Вася</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-		<script src="/js/libs/toastr.js"></script>
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		<script src="/libs/airDatePicker/index.js"></script>
-		<script src="/js/menu/menu.js" type="module"></script>
-		<script src="/js/jointsPage/index.js" type="module"></script>
-	</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/js/libs/toastr.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/libs/airDatePicker/index.js"></script>
+    <script src="/js/menu/menu.js" type="module"></script>
+    <script src="/js/jointsPage/index.js" type="module"></script>
+  </body>
 </html>
