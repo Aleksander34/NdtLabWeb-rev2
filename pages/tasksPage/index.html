@@ -155,41 +155,36 @@
         <div class="container-fluid px-3">
           <!-- Фильтры таблицы -->
           <div class="joints__filters">
-            <div class="row mb-3">
-              <div class="col-8">
-                <div class="row mb-3">
-                  <div class="col-3">
-                    <label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
-                    <div>
-                      <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" id="productionRequest2" class="btn btn-primary active">Производство</button>
-                        <button type="button" id="qualificationRequest2" class="btn btn-primary">Квалификация</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <label for="exampleFormControlInput1" class="form-label">тип чегото там</label>
-                    <div>
-                      <div id="productionRequestType2" class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary requestType">Трубопровод</button>
-                        <button type="button" class="btn btn-primary requestType">Резервуар</button>
-                        <button type="button" class="btn btn-primary requestType">Металлоконструкция</button>
-                      </div>
-                      <div id="qualificationRequestType2" class="btn-group d-none" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary requestType">ДС</button>
-                        <button type="button" class="btn btn-primary requestType">ТР</button>
-                        <button type="button" class="btn btn-primary requestType">PQR</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                    <label class="form-label" for="">Выбор даты</label>
-                    <input class="form-control" type="text" name="" id="jointsDate" />
+            <div class="row mb-3 mt-3">
+              <div class="col-3">
+                <label for="exampleFormControlInput1" class="form-label">Тип объекта контроля</label>
+                <div>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id="productionRequest2" class="btn btn-primary active">Производство</button>
+                    <button type="button" id="qualificationRequest2" class="btn btn-primary" data-type="qualification">Квалификация</button>
                   </div>
                 </div>
               </div>
+              <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">тип чегото там</label>
+                <div>
+                  <div id="productionRequestType2" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary requestType active" data-type="piping">Т/T</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="tanks">РВС</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="steelStructure">МК</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="pipeLine">ЛЧ</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="rebar">АРМ</button>
+                  </div>
+                  <div id="qualificationRequestType2" class="btn-group d-none" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary requestType" data-type="DS">ДС</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="TR">ТР</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="PQR">PQR</button>
+                    <button type="button" class="btn btn-primary requestType" data-type="KSS">KSS</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Фильтры по результату контроля (годен ремонт вырез и т.д) -->
           <div style="position: relative; min-width: 100%; height: 60px">
@@ -375,7 +370,6 @@
 
     <!-- модальное окно распределения заданий на персонал -->
 
-    
     <div id="taskPersonalModal" class="modal" tabindex="-1">
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
@@ -396,170 +390,176 @@
               </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">            <div>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#personalTab" type="button" role="tab" aria-controls="home" aria-selected="true">Персонал</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#EquipmentTab" type="button" role="tab" aria-controls="profile" aria-selected="false">Оборудование</button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="personalTab" role="tabpanel" aria-labelledby="home-tab">
-                    <h3>распределение персонала</h3>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Старший группы</label>
-                      <select name="Authors" id="teamLead" class="form-control">
-                        <option></option>
-                      </select>
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div>
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#personalTab" type="button" role="tab" aria-controls="home" aria-selected="true">Персонал</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#EquipmentTab" type="button" role="tab" aria-controls="profile" aria-selected="false">Оборудование</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="personalTab" role="tabpanel" aria-labelledby="home-tab">
+                      <h3>распределение персонала</h3>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Старший группы</label>
+                        <select name="Authors" id="teamLead" class="form-control">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Состав бригады</label>
+                        <select name="Authors" id="inspectors" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Действующий сертификат</label>
+                        <select name="Authors" id="validCertificate" class="form-control">
+                          <option></option>
+                        </select>
+                      </div>
                     </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Состав бригады</label>
-                      <select name="Authors" id="inspectors" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Действующий сертификат</label>
-                      <select name="Authors" id="validCertificate" class="form-control">
-                        <option></option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="EquipmentTab" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3>распределение оборудование</h3>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Основное средство</label>
-                      <select name="Authors" id="mainDevice" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Инструмент/ы</label>
-                      <select name="Authors" id="tools" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div></div>
-              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">            <div>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#personalTab" type="button" role="tab" aria-controls="home" aria-selected="true">Персонал</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#EquipmentTab" type="button" role="tab" aria-controls="profile" aria-selected="false">Оборудование</button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="personalTab" role="tabpanel" aria-labelledby="home-tab">
-                    <h3>распределение персонала</h3>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Старший группы</label>
-                      <select name="Authors" id="teamLead" class="form-control">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Состав бригады</label>
-                      <select name="Authors" id="inspectors" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Действующий сертификат</label>
-                      <select name="Authors" id="validCertificate" class="form-control">
-                        <option></option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="EquipmentTab" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3>распределение оборудование</h3>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Основное средство</label>
-                      <select name="Authors" id="mainDevice" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Инструмент/ы</label>
-                      <select name="Authors" id="tools" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
+                    <div class="tab-pane fade" id="EquipmentTab" role="tabpanel" aria-labelledby="profile-tab">
+                      <h3>распределение оборудование</h3>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Основное средство</label>
+                        <select name="Authors" id="mainDevice" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Инструмент/ы</label>
+                        <select name="Authors" id="tools" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div></div>
-              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">            <div>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#personalTab" type="button" role="tab" aria-controls="home" aria-selected="true">Персонал</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#EquipmentTab" type="button" role="tab" aria-controls="profile" aria-selected="false">Оборудование</button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="personalTab" role="tabpanel" aria-labelledby="home-tab">
-                    <h3>распределение персонала</h3>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Старший группы</label>
-                      <select name="Authors" id="teamLead" class="form-control">
-                        <option></option>
-                      </select>
+              </div>
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div>
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#personalTab" type="button" role="tab" aria-controls="home" aria-selected="true">Персонал</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#EquipmentTab" type="button" role="tab" aria-controls="profile" aria-selected="false">Оборудование</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="personalTab" role="tabpanel" aria-labelledby="home-tab">
+                      <h3>распределение персонала</h3>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Старший группы</label>
+                        <select name="Authors" id="teamLead" class="form-control">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Состав бригады</label>
+                        <select name="Authors" id="inspectors" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Действующий сертификат</label>
+                        <select name="Authors" id="validCertificate" class="form-control">
+                          <option></option>
+                        </select>
+                      </div>
                     </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Состав бригады</label>
-                      <select name="Authors" id="inspectors" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Действующий сертификат</label>
-                      <select name="Authors" id="validCertificate" class="form-control">
-                        <option></option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="EquipmentTab" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3>распределение оборудование</h3>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Основное средство</label>
-                      <select name="Authors" id="mainDevice" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
-                    </div>
-        
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Инструмент/ы</label>
-                      <select name="Authors" id="tools" class="form-control" multiple="multiple">
-                        <option></option>
-                      </select>
+                    <div class="tab-pane fade" id="EquipmentTab" role="tabpanel" aria-labelledby="profile-tab">
+                      <h3>распределение оборудование</h3>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Основное средство</label>
+                        <select name="Authors" id="mainDevice" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Инструмент/ы</label>
+                        <select name="Authors" id="tools" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div></div>
+              </div>
+              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div>
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#personalTab" type="button" role="tab" aria-controls="home" aria-selected="true">Персонал</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#EquipmentTab" type="button" role="tab" aria-controls="profile" aria-selected="false">Оборудование</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="personalTab" role="tabpanel" aria-labelledby="home-tab">
+                      <h3>распределение персонала</h3>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Старший группы</label>
+                        <select name="Authors" id="teamLead" class="form-control">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Состав бригады</label>
+                        <select name="Authors" id="inspectors" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Действующий сертификат</label>
+                        <select name="Authors" id="validCertificate" class="form-control">
+                          <option></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="EquipmentTab" role="tabpanel" aria-labelledby="profile-tab">
+                      <h3>распределение оборудование</h3>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Основное средство</label>
+                        <select name="Authors" id="mainDevice" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Инструмент/ы</label>
+                        <select name="Authors" id="tools" class="form-control" multiple="multiple">
+                          <option></option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" id="saveTask"class="btn btn-primary">Save changes</button>
+            <button type="button" id="saveTask" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -574,9 +574,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/libs/airDatePicker/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-		<script src="/js/menu/menu.js" type="module"></script>
+    <script src="/js/menu/menu.js" type="module"></script>
     <script src="/js/tasksPage/index.js" type="module"></script>
   </body>
 </html>
-
-

@@ -1,10 +1,21 @@
 import requestService from '../api/requestService.js';
-// import initColumnFilter from '../libs/tableColumnFilter.js';
 import jointService from '../api/jointService.js';
 import inspectionService from '../api/inspectionService.js';
 $(function () {
 	var _$modal = $('#exampleModal'),
 		_$table = $('#example');
+
+		let jointTypeDict = {
+			piping:0,
+			tanks:1,
+			steelStructure:2,
+			pipeLine:3,
+			DS:4,
+			TR:5,
+			PQR:6,
+			KSS:7,
+			rebar:8,
+		}
 
 	$('#requestPreviewTable').DataTable({
 		ordering: false,
@@ -62,9 +73,11 @@ $(function () {
 			{
 				data: 'stamps',
 			},
-			// {
-			// 	data: 'requiredInspection',
-			// },
+			{
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.inspections?.map(x=>x.name).join(', ') || '';
+			}},
 			{
 				data: 'weldLength',
 			},
@@ -132,6 +145,7 @@ $(function () {
 			let filters = {};
 			filters.countOnPage = data.length; //входный данные фильтров
 			filters.skipCount = data.start; //входный данные фильтров
+			filters.jointType = jointTypeDict[$('.requestType.active').data('type')]
 			let result = await jointService.getAll(filters);
 			success(result);
 		},
@@ -169,25 +183,47 @@ $(function () {
 				data: 'number',
 			},
 			{
-				data: 'request.piping.zone',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.piping?.zone || '';
+				},
+				
 			},
 			{
-				data: 'request.piping.line',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.piping?.line || '';
+				},
 			},
 			{
-				data: 'request.piping.spool',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.piping?.spool || '';
+				},
 			},
 			{
-				data: 'request.steelStructure.part',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.steelStructure?.part || '';
+				},
 			},
 			{
-				data: 'request.steelStructure.sector',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.steelStructure?.sector || '';
+				},
 			},
 			{
-				data: 'request.tank.part',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.tank?.part || '';
+				},
 			},
 			{
-				data: 'request.pipeLine.distance',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.pipeLine?.distance || '';
+				},
 			},
 			{
 				data: 'connectionType',
@@ -524,8 +560,22 @@ $(function () {
 							jointsTable.column('10').visible(false);
 						}
 							break;
+
+							case 'rebar': 
+							{
+								jointsTable.column('4').visible(false);
+								jointsTable.column('5').visible(false);
+								jointsTable.column('6').visible(false);
+								jointsTable.column('7').visible(false);
+								jointsTable.column('8').visible(false);
+								jointsTable.column('9').visible(false);
+								jointsTable.column('10').visible(false);
+							}
+								break;
 		}
+		jointsTable.ajax.reload();
 
 	});
+	$('[data-type].active').trigger('click');
 
 });

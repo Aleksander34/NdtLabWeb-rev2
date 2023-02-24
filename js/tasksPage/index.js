@@ -6,6 +6,18 @@ $(function () {
 	var _$modal = $('#exampleModal'),
 		_$table = $('#example');
 
+		let jointTypeDict = {
+			piping:0,
+			tanks:1,
+			steelStructure:2,
+			pipeLine:3,
+			DS:4,
+			TR:5,
+			PQR:6,
+			KSS:7,
+			rebar:8,
+		}
+
 	$('.requestType').click(function () {
 		$('.requestType').removeClass('active');
 		$(this).addClass('active');
@@ -60,7 +72,7 @@ $(function () {
 		},
 	};
 
-	_$table.DataTable({
+	let jointsTable=_$table.DataTable({
 		processing: true,
 		serverSide: true,
 		paging: true,
@@ -83,7 +95,13 @@ $(function () {
 			$('[data-bs-toggle="tooltip"]').tooltip();
 		},
 		ajax: async (data, success, failure) => {
-			let result = await jointService.getAll();
+			let filters = {};
+			filters.countOnPage = data.length; //входный данные фильтров
+			filters.skipCount = data.start; //входный данные фильтров
+			filters.jointType = jointTypeDict[$('.requestType.active').data('type')]
+			filters.isNeedInspection = true;
+			console.log(filters);
+			let result = await jointService.getAll(filters);
 			success(result);
 		},
 		columns: [
@@ -120,25 +138,47 @@ $(function () {
 				data: 'number',
 			},
 			{
-				data: 'request.piping.zone',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.piping?.zone || '';
+				},
+				
 			},
 			{
-				data: 'request.piping.line',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.piping?.line || '';
+				},
 			},
 			{
-				data: 'request.piping.spool',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.piping?.spool || '';
+				},
 			},
 			{
-				data: 'request.steelStructure.part',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.steelStructure?.part || '';
+				},
 			},
 			{
-				data: 'request.steelStructure.sector',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.steelStructure?.sector || '';
+				},
 			},
 			{
-				data: 'request.tank.part',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.tank?.part || '';
+				},
 			},
 			{
-				data: 'request.pipeLine.distance',
+				data: null,
+				render: function (data, type, row, meta) {
+					return row.request?.pipeLine?.distance || '';
+				},
 			},
 			{
 				data: 'connectionType',
@@ -373,4 +413,82 @@ $(function () {
 		// await bookService.update(bookDto);
 		// $('#taskPersonalModal').modal('hide');
 	});
+
+	$('[data-type]').click(function () {
+		let type = $(this).data('type')
+		console.log(type);
+		switch(type){
+			case 'piping': 
+			{
+						jointsTable.column('4').visible(true);
+						jointsTable.column('5').visible(true);
+						jointsTable.column('6').visible(true);
+						jointsTable.column('7').visible(false);
+						jointsTable.column('8').visible(false);
+						jointsTable.column('9').visible(false);
+						jointsTable.column('10').visible(false);
+			}
+				break;
+				case 'tanks': 
+				{
+					jointsTable.column('4').visible(false);
+					jointsTable.column('5').visible(false);
+					jointsTable.column('6').visible(false);
+					jointsTable.column('7').visible(false);
+					jointsTable.column('8').visible(false);
+					jointsTable.column('9').visible(true);
+					jointsTable.column('10').visible(false);
+				}
+					break;
+					case 'steelStructure': 
+				{
+					jointsTable.column('4').visible(false);
+					jointsTable.column('5').visible(false);
+					jointsTable.column('6').visible(false);
+					jointsTable.column('7').visible(true);
+					jointsTable.column('8').visible(false);
+					jointsTable.column('9').visible(false);
+					jointsTable.column('10').visible(false);
+				}
+					break;
+					case 'pipeLine': 
+					{
+						jointsTable.column('4').visible(false);
+						jointsTable.column('5').visible(false);
+						jointsTable.column('6').visible(false);
+						jointsTable.column('7').visible(false);
+						jointsTable.column('8').visible(false);
+						jointsTable.column('9').visible(false);
+						jointsTable.column('10').visible(true);
+					}
+						break;
+						case 'qualification': 
+						{
+							jointsTable.column('4').visible(false);
+							jointsTable.column('5').visible(false);
+							jointsTable.column('6').visible(false);
+							jointsTable.column('7').visible(false);
+							jointsTable.column('8').visible(false);
+							jointsTable.column('9').visible(false);
+							jointsTable.column('10').visible(false);
+						}
+							break;
+
+							case 'rebar': 
+							{
+								jointsTable.column('4').visible(false);
+								jointsTable.column('5').visible(false);
+								jointsTable.column('6').visible(false);
+								jointsTable.column('7').visible(false);
+								jointsTable.column('8').visible(false);
+								jointsTable.column('9').visible(false);
+								jointsTable.column('10').visible(false);
+							}
+								break;
+		}
+		jointsTable.ajax.reload();
+
+	});
+	$('[data-type].active').trigger('click');
+
 });
