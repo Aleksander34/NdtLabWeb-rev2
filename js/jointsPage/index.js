@@ -376,7 +376,7 @@ $(function () {
 			$('#QualificationType').text(previewRequest.request.qualification);
 
 			$('#requestSubmittedBy').text(previewRequest.request.submittedBy);
-			$('#requestReceivedByFio').text(previewRequest.request.receivedByFio);
+			$('#requestReceivedByFio').text(previewRequest.request.employeeName);
 
 			previewRequest.joints.forEach((element) => {
 				console.log(element);
