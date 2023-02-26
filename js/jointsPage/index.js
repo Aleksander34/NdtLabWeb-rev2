@@ -10,10 +10,10 @@ $(function () {
 			tanks:1,
 			steelStructure:2,
 			pipeLine:3,
-			DS:4,
-			TR:5,
-			PQR:6,
-			KSS:7,
+			DS:5,
+			TR:6,
+			PQR:7,
+			KSS:4,
 			rebar:8,
 		}
 
@@ -216,7 +216,7 @@ $(function () {
 			{
 				data: null,
 				render: function (data, type, row, meta) {
-					return row.request?.tank?.part || '';
+					return row.request?.tank?.name || '';
 				},
 			},
 			{
@@ -360,18 +360,37 @@ $(function () {
 			$('#requestDraw').text(previewRequest.request.draw);
 			$('#requestTemperature').text(previewRequest.request.temperature);
 
+			if(previewRequest.request.referencesDoc)
+			{
 			$('#requestReferencesDocMainDoc').text(previewRequest.request.referencesDoc.mainDoc);
 			$('#requestReferencesDocWeldingDoc').text(previewRequest.request.referencesDoc.weldingDoc);
 			$('#requestReferencesDocInspectionDoc').text(previewRequest.request.referencesDoc.inspectionDoc);
 			$('#requestReferencesDocQualityCriteria').text(previewRequest.request.referencesDoc.qualityCriteria);
+			}
+			
+			if(previewRequest.request.piping)
+			{
+				$('#requestPipingZone').text(previewRequest.request.piping.zone);
+				$('#requestPipingLine').text(previewRequest.request.piping.line);
+				$('#requestPipingSpool').text(previewRequest.request.piping.spool);
+			}
 
-			$('#requestPipingZone').text(previewRequest.request.piping.zone);
-			$('#requestPipingLine').text(previewRequest.request.piping.line);
-			$('#requestPipingSpool').text(previewRequest.request.piping.spool);
-			$('#requestSteelStructureSector').text(previewRequest.request.steelStructure.sector);
-			$('#requestSteelStructurePart').text(previewRequest.request.steelStructure.part);
-			$('#tankPart').text(previewRequest.request.tank.part);
-			$('#requestPipeLineDistance').text(previewRequest.request.pipeLine.distance);
+			if(previewRequest.request.steelStructure)
+			{
+				$('#requestSteelStructureSector').text(previewRequest.request.steelStructure.sector);
+				$('#requestSteelStructurePart').text(previewRequest.request.steelStructure.part);
+			}
+			
+			if(previewRequest.request.tank)
+			{
+				$('#tankPart').text(previewRequest.request.tank.part);
+			}
+			
+			if(previewRequest.request.pipeLine)
+			{
+				$('#requestPipeLineDistance').text(previewRequest.request.pipeLine.distance);
+			}
+			
 			$('#requestRebar').text(previewRequest.request.rebar);
 			$('#QualificationType').text(previewRequest.request.qualification);
 
