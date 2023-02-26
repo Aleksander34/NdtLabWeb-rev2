@@ -11,10 +11,10 @@ $(function () {
 			tanks:1,
 			steelStructure:2,
 			pipeLine:3,
-			DS:4,
-			TR:5,
-			PQR:6,
-			KSS:7,
+			DS:5,
+			TR:6,
+			PQR:7,
+			KSS:4,
 			rebar:8,
 		}
 
